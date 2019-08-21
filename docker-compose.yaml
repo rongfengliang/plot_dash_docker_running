@@ -1,7 +1,14 @@
 version: "3"
 services: 
-  dash:
+  dash-gunicorn:
      build: ./
-     image: dalongrong/dash-demo
+     image: dalongrong/dash-demo:gunicorn
      ports: 
      - "5000:5000"
+  dash-uwsgi:
+     build: 
+      context: ./
+      dockerfile: Dockerfile-uwsgi
+     image: dalongrong/dash-demo:uwsgi
+     ports: 
+     - "5001:5001"

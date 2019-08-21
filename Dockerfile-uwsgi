@@ -1,0 +1,8 @@
+FROM python:3.5.7-alpine
+RUN apk add --no-cache uwsgi uwsgi-python3  uwsgi-http
+RUN  pip install dash==1.1.1  \
+    && pip install dash-daq==0.1.0
+WORKDIR /app
+COPY . /app
+EXPOSE 5001
+ENTRYPOINT [ "uwsgi","--plugins","http,python3","--http","0.0.0.0:5001","--module","app:server","--pythonpath","/usr/local/lib/python3.5/site-packages"]
