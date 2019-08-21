@@ -1,0 +1,7 @@
+version: "3"
+services: 
+  dash:
+     build: ./
+     image: dalongrong/dash-demo
+     ports: 
+     - "8050:8050"
