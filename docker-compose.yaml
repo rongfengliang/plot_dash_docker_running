@@ -2,6 +2,6 @@ version: "3"
 services: 
   dash-gunicorn:
      build: ./
-     image: dalongrong/dash-demo:gunicorn
+     image: dalongrong/dash-demo:gunicorn-panda
      ports: 
      - "5000:5000"
